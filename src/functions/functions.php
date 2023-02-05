@@ -8,7 +8,7 @@
 
     function verifyExistsUser($user_name) {
         require_once "../config/connect-db.php";
-        $sqlExistsUser = "SELECT user_name FROM users-tb WHERE user_name = $user_name";
+        $sqlExistsUser = "SELECT user_name FROM users_tb WHERE user_name = '$id'";
         if ($conn->query($sqlExistsUser)->num_rows > 0) {
             return true;
         } else {
