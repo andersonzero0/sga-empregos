@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once "../config/connect-db.php";
-    require_once "../functions/functions.php";
+    include "../config/connect-db.php";
+    require "../functions/functions.php";
 
     if (isset($_SESSION["userNameClient"]) && 
     isset($_SESSION["passwordClient"]) && 
