@@ -7,11 +7,14 @@
     isset($_SESSION["date"])) {
 
         $userNameClient = $_SESSION['userNameClient'];
+        $passwordClient = $_SESSION['passwordClient'];
+        $dateUser = $_SESSION['date'];
+        $tokenUser = md5(sha1($userNameClient . $passwordClient . $dateUser));
 
-        if(verifyExistsUser($userNameClient)) {
-            /*  */
+        if(!verifyExistsUser($userNameClient)) {
+            register($userNameClient, $passwordClient, $tokenUser, $dateUser);
         } else {
-            /*  */
+            echo 0;
         }
         
     }
