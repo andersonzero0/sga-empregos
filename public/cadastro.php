@@ -8,7 +8,7 @@
 </head>
 <body>
     <main>
-        <form action="<?= htmlspecialchars('../src/controllers/cadastroControllers.php') ?>" method="POST">
+        <form action="<?= htmlspecialchars('src/controllers/cadastroControllers.php') ?>" method="POST">
             <label for="">Usuário</label>
             <input type="text" minlength="5" maxlength="15" required name="userNameClient">
             <label for="">Senha</label>
