@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require_once "../config/connect-db.php";
     require_once "../functions/functions.php";
 
     if (isset($_SESSION["userNameClient"]) && 
