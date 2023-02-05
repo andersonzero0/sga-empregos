@@ -48,6 +48,7 @@ CREATE TABLE `user_datas_tb` (
   `name_company_userData` varchar(30) DEFAULT NULL,
   `email_address_userData` varchar(50) DEFAULT NULL,
   `phone_number_userData` varchar(20) DEFAULT NULL,
+  `type_user` varchar(20) DEFAULT NULL,
   `external_link_userData` varchar(60) DEFAULT NULL,
   `link_image_profile_userData` varchar(60) NOT NULL,
   `link_curriculum_vitae_userData` varchar(60) NOT NULL
