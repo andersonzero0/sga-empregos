@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "../config/connect-db.php";
-    require "../functions/functions.php";
+    require_once "../config/connect-db.php";
+    require_once "../functions/functions.php";
 
     if (isset($_SESSION["userNameClient"]) && 
     isset($_SESSION["passwordClient"]) && 
@@ -9,10 +9,10 @@
 
         $userNameClient = $_SESSION['userNameClient'];
 
-        if (verifyExistsUser($userNameClient)) {
-            echo "Existe usuário!";
+        if(verifyExistsUser($userNameClient)) {
+            /*  */
         } else {
-            echo "Não Existe Usuário!";
+            /*  */
         }
         
     }
