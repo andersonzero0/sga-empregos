@@ -7,6 +7,10 @@
 
     <link rel="stylesheet" href="assets/css/cadastro.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Bebas+Neue&family=Lora:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
     <script src="https://kit.fontawesome.com/05378ddbee.js" crossorigin="anonymous"></script>
 
     <title>Cadastro - SGA Empregos</title>

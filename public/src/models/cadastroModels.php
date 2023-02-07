@@ -12,9 +12,21 @@
         $tokenUser = md5(sha1($userNameClient . $passwordClient . $dateUser));
 
         if(!verifyExistsUser($userNameClient)) {
+
             register($userNameClient, $passwordClient, $tokenUser, $dateUser);
+
+            session_destroy();
+            
+            $_SESSION['tokenUser'] = $tokenUser;
+
+            header("location: ../../dadosusuario.php");
+
         } else {
+
+            session_destroy();
+
             echo 0;
+
         }
         
     }
