@@ -14,8 +14,6 @@
         if(!verifyExistsUser($userNameClient)) {
 
             register($userNameClient, $passwordClient, $tokenUser, $dateUser);
-
-            session_destroy();
             
             $_SESSION['tokenUser'] = $tokenUser;
 
