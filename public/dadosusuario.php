@@ -28,7 +28,6 @@ if(isset($_SESSION['tokenUser'])) {
 </body>
 </html>
 
-
 <?php
     } else {
         echo 1;
