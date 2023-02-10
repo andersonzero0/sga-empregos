@@ -45,7 +45,6 @@ CREATE TABLE `user_datas_tb` (
   `id_userData` int(11) NOT NULL,
   `forward_key_userData` int(11) NOT NULL,
   `full_name_userData` varchar(80) DEFAULT NULL,
-  `name_company_userData` varchar(30) DEFAULT NULL,
   `email_address_userData` varchar(50) DEFAULT NULL,
   `phone_number_userData` varchar(20) DEFAULT NULL,
   `type_user` varchar(20) DEFAULT NULL,
