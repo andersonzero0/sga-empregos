@@ -1,7 +1,6 @@
 <?php
     session_start();
     
-    require_once "../config/connect-db.php";
     require_once "../functions/functions.php";
 
     $userNameClient = test_input($_POST['userNameClient']);
