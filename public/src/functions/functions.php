@@ -37,4 +37,14 @@
             return false;
         }
     }
+
+    function tokenForID($token) {
+        require "../config/connect-db.php";
+
+        $sql = "SELECT id_user FROM users_tb WHERE token_user = '$token'";
+
+        $id = $conn->query($sql)->fetch_assoc()['id_user'];
+
+        return $id;
+    }
 ?>

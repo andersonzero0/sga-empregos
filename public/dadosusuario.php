@@ -20,9 +20,33 @@ if(isset($_SESSION['tokenUser'])) {
 </head>
 <body>
     <main>
-        <form action="" method="post">
-            <label for="fullName">Nome Completo</label>
-            <input type="text" name="fullName" id="fullName">
+        <form action="<?= htmlspecialchars('src/controllers/dadosUserControllers.php') ?>" method="post" enctype="multipart/form-data">
+            <label for="fullName">Nome Completo:</label>
+            <input type="text" name="fullName" id="fullName" required minlength="15" maxlength="80" size="35">
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required minlength="3" maxlength="50" size="30">
+
+            <label for="phone">Telefone:</label>
+            <input type="tel" name="phone" id="phone" required minlength="10" maxlength="20" size="20">
+
+            <label for="type_user">Você é</label>
+            <select name="type_user" id="type_user" required>
+                <option value="" disabled selected>Selecione</option>
+                <option value="recrutador">Recrutador</option>
+                <option value="candidato">Candidato</option>
+            </select>
+
+            <label for="link">Rede Social:</label>
+            <input type="url" name="link" id="link" required minlength="5" maxlength="60" size="30">
+
+            <label for="imgPerfil">Sua Foto de Perfil</label>
+            <input type="file" name="imgPerfil" id="ImgPerfil" accept="image/*" required>
+
+            <label for="curriculoPDF">Currículo</label>
+            <input type="file" name="curriculoPDF" id="curriculoPDF" accept=".pdf" required>
+
+            <button type="submit" name="submit">Enviar</button>
         </form>
     </main>
 </body>
