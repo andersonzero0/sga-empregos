@@ -7,6 +7,28 @@
     <title></title>
 </head>
 <body>
-    <a href="cadastro.php">cadastro</a>
+
+    <?php
+        session_start();
+
+        if(isset($_SESSION['tokenUser']) && isset($_SESSION['type_user'])) {
+
+            if ($_SESSION['type_user'] == "recrutador") {
+
+                include "src/views/recrutadorView.php";
+                
+            } elseif ($_SESSION['type_user'] == "candidato") {
+
+                include "src/views/candidatoView.php";
+                
+            }
+            
+        } else {
+
+            echo 0101;
+            
+        }
+    ?>
+
 </body>
 </html>

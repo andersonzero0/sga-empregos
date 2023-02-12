@@ -18,6 +18,8 @@ if(isset($_SESSION['fullName']) && isset($_SESSION['tokenUser'])) {
 
     $conn->query($sql);
 
-    header("location: ../../home.php");
+    header("location: redirectUser.php");
+} else {
+    header("location: ../../index.html");
 }
 ?>
