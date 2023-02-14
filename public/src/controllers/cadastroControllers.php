@@ -5,8 +5,6 @@
 
     if(isset($_POST['submit'])) {
 
-        session_destroy();
-
         $userNameClient = test_input($_POST['userNameClient']);
         $passwordClient = md5(sha1(test_input($_POST['passwordClient'])));
         $date = date('d/m/Y');
