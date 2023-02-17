@@ -1,0 +1,64 @@
+@charset "uft-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Bebas+Neue&family=Lora:ital,wght@0,700;1,700&display=swap');
+
+:root {
+    /* colors */
+    --colorWhite: #F2F2F2;
+    --colorBlack: #0F0F0F;
+
+    --colorBlue: #0D518C;
+    --colorGreen: #127334;
+    --colorOrange: #F28322;
+    --colorOrange1: #F25F29;
+
+    /* fonts */
+    --fontMain: 'Assistant', sans-serif;
+    --fontLogo: 'Bebas Neue', cursive;
+    --fontText: 'Lora', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: white;
+
+    display: grid;
+    grid-template-rows: 10% 90%;
+
+    font-family: var(--fontMain);
+}
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img_perfil {
+    height: 90%;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.navbar, li {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar_conteiner, .navbar, li {
+    height: 100%;
+}

@@ -32,7 +32,10 @@
                 <input class="input-form" type="password" minlength="10" maxlength="15" required name="passwordClient" placeholder="Senha">
             </div>
 
-            <div><input class="btn_submit" type="submit" name="submit" value="Cadastrar"></div>
+            <div>
+                <input class="btn_submit" type="submit" name="submit" value="Cadastrar">
+                <p>Já possui uma conta? <a href="login.php">Fazer Login</a></p>
+            </div>
         </form>
     </main>
 

@@ -47,4 +47,15 @@
 
         return $id;
     }
+
+    function getDatasUser($token) {
+        require "src/config/connect-db.php";
+        
+        $sqlGet = "SELECT * FROM users_tb INNER JOIN user_datas_tb ON users_tb.id_user = user_datas_tb.id_userData WHERE token_user = '$token'";
+
+        $row = $conn->query($sqlGet)->fetch_assoc();
+
+        return $row;
+    }
+
 ?>
