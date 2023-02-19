@@ -29,10 +29,10 @@
                 <input class="input-form" type="password" minlength="10" maxlength="15" required name="passwordClient" placeholder="Senha">
             </div>
 
-            <div>
+            <div class="content_submit">
                 <input class="btn_submit" type="submit" name="submit" value="Entrar">
-                <p>Não possui uma conta? <a href="cadastro.php">Cadastre-se</a></p>
             </div>
+            <p>Não possui uma conta? <a href="cadastro.php">Cadastre-se</a></p>
 
         </form>
     </main>

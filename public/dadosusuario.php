@@ -33,8 +33,8 @@ if(isset($_SESSION['tokenUser'])) {
             <label for="type_user">Você é</label>
             <select name="type_user" id="type_user" required>
                 <option value="" disabled selected>Selecione</option>
-                <option value="Recrutador">Recrutador</option>
-                <option value="Candidato">Candidato</option>
+                <option value="RECRUTADOR">Recrutador</option>
+                <option value="CANDIDATO">Candidato</option>
             </select>
 
             <label for="link">Rede Social:</label>

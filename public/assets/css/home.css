@@ -43,12 +43,44 @@ body {
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
+
+    background-color: var(--colorWhite);
+    cursor: default;
+    user-select: none;
+}
+
+.logo_text {
+    font-family: var(--fontLogo);
+    font-size: 2.5em;
+    color: var(--colorBlue);
 }
 
 .img_perfil {
-    height: 90%;
+    height: 70%;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
+    transition: ease 0.2s;
+}
+
+.img_perfil:hover {
+    box-shadow: 2px 2px 5px gray;
+    transition: ease 0.2s;
+}
+
+.btn_exit {
+    padding: 3px 10px;
+    background-color: var(--colorOrange1);
+    border: 2px solid var(--colorBlack);
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--colorWhite);
+    transition: ease 0.2s;
+    cursor: pointer;
+}
+
+.btn_exit:hover {
+    background-color: red;
+    transition: ease 0.2s;
 }
 
 .navbar, li {
@@ -57,8 +89,18 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
+
+    font-weight: bolder;
+    font-size: 1.1em;
 }
 
-.navbar_conteiner, .navbar, li {
+.type_text {
+    background-color: var(--colorGreen);
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: var(--colorWhite);
+}
+
+.navbar_conteiner, .navbar, .conteiner_imgPerfil {
     height: 100%;
 }

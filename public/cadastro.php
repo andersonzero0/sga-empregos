@@ -34,8 +34,8 @@
 
             <div>
                 <input class="btn_submit" type="submit" name="submit" value="Cadastrar">
-                <p>Já possui uma conta? <a href="login.php">Fazer Login</a></p>
             </div>
+            <p>Já possui uma conta? <a href="login.php">Fazer Login</a></p>
         </form>
     </main>
 
