@@ -48,6 +48,16 @@
         return $id;
     }
 
+    function tokenForID2($token) {
+        require "src/config/connect-db.php";
+
+        $sql = "SELECT id_user FROM users_tb WHERE token_user = '$token'";
+
+        $id = $conn->query($sql)->fetch_assoc()['id_user'];
+
+        return $id;
+    }
+
     function getDatasUser($token) {
         require "src/config/connect-db.php";
         

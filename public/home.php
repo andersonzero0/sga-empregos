@@ -9,7 +9,6 @@
     <title>Home</title>
 </head>
 <body>
-
     <?php
         session_start();
 
@@ -25,7 +24,7 @@
 
                 include "src/views/recrutadorView.php";
                 
-            } elseif ($_SESSION['type_user'] == "CANDIDATO") {
+            } else if ($_SESSION['type_user'] == "CANDIDATO") {
 
                 include "src/views/candidatoView.php";
                 
