@@ -2,8 +2,6 @@
 if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutador.php') {
     header('location: ../../index.html');
 } else {
-
-
 ?>
 
     <main>
@@ -24,7 +22,7 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutador.php') {
                 <input type="text" name="turno" id="turno" maxlength="15" size="15">
 
                 <label for="qnt_vaga">Quantidade de vagas:</label>
-                <input type="text" name="qnt_vaga" id="qnt_vaga" maxlength="11" size="3">
+                <input type="number" name="qnt_vaga" id="qnt_vaga" maxlength="11" size="3">
 
                 <label for="decricao_vaga"></label>
                 <textarea name="descricao_vaga" id="descricao" cols="100" rows="20" maxlength="500"></textarea>
@@ -33,6 +31,36 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutador.php') {
 
             </form>
 
+        </div>
+
+        <div class="vagas_conteiner">
+<?php
+    require "src/config/connect-db.php";
+
+    $token = $_SESSION['tokenUser'];
+
+    $sqlVagas = "SELECT * FROM users_tb INNER JOIN vagas_tb ON users_tb.id_user = vagas_tb.forward_key_vaga WHERE token_user = '$token'";
+
+    $result = $conn->query($sqlVagas);
+
+    if($result->num_rows > 0){
+
+        while($row = $result->fetch_assoc()) {
+
+?>
+
+        <div class="box_vaga">
+            <p><?= $row['cargo_vaga'] ?></p>
+        </div>
+
+<?php
+            
+        }
+        
+    } else {
+        echo "Não há vagas criadas";
+    }
+?>
         </div>
     </main>
 

@@ -21,11 +21,11 @@
 
             include "src/views/header.php";
 
-            if ($_SESSION['type_user'] == "recrutador") {
+            if ($_SESSION['type_user'] == "Recrutador") {
 
                 include "src/views/recrutadorView.php";
                 
-            } elseif ($_SESSION['type_user'] == "candidato") {
+            } elseif ($_SESSION['type_user'] == "Candidato") {
 
                 include "src/views/candidatoView.php";
                 

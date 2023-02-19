@@ -33,15 +33,12 @@ if(isset($_SESSION['tokenUser'])) {
             <label for="type_user">Você é</label>
             <select name="type_user" id="type_user" required>
                 <option value="" disabled selected>Selecione</option>
-                <option value="recrutador">Recrutador</option>
-                <option value="candidato">Candidato</option>
+                <option value="Recrutador">Recrutador</option>
+                <option value="Candidato">Candidato</option>
             </select>
 
             <label for="link">Rede Social:</label>
             <input type="url" name="link" id="link" required minlength="5" maxlength="60" size="30">
-
-            <label for="imgPerfil">Sua Foto de Perfil</label>
-            <input type="file" name="imgPerfil" id="ImgPerfil" accept="image/*" required>
 
             <label for="curriculoPDF">Currículo</label>
             <input type="file" name="curriculoPDF" id="curriculoPDF" accept=".pdf" required>

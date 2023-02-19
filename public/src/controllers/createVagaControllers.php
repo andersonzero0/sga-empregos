@@ -15,4 +15,6 @@ if (isset($_GET['submit'])) {
     $sqlInsertVaga = "INSERT INTO vagas_tb(forward_key_vaga, cargo_vaga, empresa_vaga, local_vaga, turno_vaga, qnt_vaga, descricao_vaga) VALUES($id, '$cargo', '$empresa', '$local', '$turno', '$qnt_vaga', '$descricao_vaga')";
 
     $conn->query($sqlInsertVaga);
+
+    header("location: ../../home.php");
 }

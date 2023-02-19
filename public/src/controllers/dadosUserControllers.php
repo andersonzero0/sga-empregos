@@ -9,36 +9,6 @@ if(isset($_POST['submit'])) {
     $type_user = test_input($_POST['type_user']);
     $linkRedeSocial = test_input($_POST['link']);
 
-    /* upload file - start */
-    $target_dir = "../../assets/images/";
-    $target_file = $target_dir . basename($_FILES["imgPerfil"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-    if ($_FILES["imgPerfil"]["size"] > 5000000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed."; 
-        $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-      // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["imgPerfil"]["tmp_name"], $target_file)) {
-
-            $imgPerfil = htmlspecialchars( basename( $_FILES["imgPerfil"]["name"]));
-
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
-    }
-
     /* ++++++++++++ */
 
     $target_dirPDF = "../../assets/pdf/";
@@ -75,7 +45,6 @@ if(isset($_POST['submit'])) {
     $_SESSION['phone'] = $phone;
     $_SESSION['type_user'] = $type_user;
     $_SESSION['linkRedeSocial'] = $linkRedeSocial;
-    $_SESSION['imgPerfil'] = $imgPerfil;
     $_SESSION['curriculoPDF'] = $curriculoPDF;
 
     header("location: ../models/dadosUserModels.php");
