@@ -5,29 +5,42 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutador.php') {
 ?>
 
     <main>
-        <div class="conteinerCreateVaga">
+        <button class="btnOpenCreateVaga"><i class="fa-solid fa-circle-plus iconOpenVaga"></i>CRIAR VAGA</button>
 
-            <form action="<?= htmlspecialchars('src/controllers/createVagaControllers.php') ?>" method="get">
+        <div class="conteinerCreateVaga" style="display: none;">
 
-                <label for="cargo">Cargo:</label>
-                <input type="text" name="cargo" id="cargo" maxlength="30" size="20">
+            <button class="closeCreateVaga"><i class="fa-solid fa-xmark"></i></button>
 
-                <label for="empresa">Empresa:</label>
-                <input type="text" name="empresa" id="empresa" maxlength="30" size="20">
+            <form class="formConteinerRecrutador" action="<?= htmlspecialchars('src/controllers/createVagaControllers.php') ?>" method="get">
 
-                <label for="local">Local:</label>
-                <input type="text" name="local" id="local" maxlength="100" size="50">
+                <div class="boxInfoRecrut">
+                    <div>
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" name="cargo" id="cargo" maxlength="30" size="20">
+                    </div>
+                    <div>
+                        <label for="empresa">Empresa:</label>
+                        <input type="text" name="empresa" id="empresa" maxlength="30" size="20">
+                    </div>
+                    <div>
+                        <label for="local">Local:</label>
+                        <input type="text" name="local" id="local" maxlength="100" size="50">
+                    </div>
+                    <div>
+                        <label for="turno">Turno:</label>
+                        <input type="text" name="turno" id="turno" maxlength="15" size="15">
+                    </div>
+                    <div>
+                        <label for="qnt_vaga">Quantidade de vagas:</label>
+                        <input class="inputQtnVagas" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;"  type="number" name="qnt_vaga" id="qnt_vaga" maxlength="11" size="4">
+                    </div>
+                </div>
 
-                <label for="turno">Turno:</label>
-                <input type="text" name="turno" id="turno" maxlength="15" size="15">
+                <div class="conteinerTexta">
+                    <textarea class="textareaDesc" placeholder="Descrição" name="descricao_vaga" id="descricao" cols="100" rows="6" maxlength="499"></textarea>
+                </div>
 
-                <label for="qnt_vaga">Quantidade de vagas:</label>
-                <input type="number" name="qnt_vaga" id="qnt_vaga" maxlength="11" size="3">
-
-                <label for="decricao_vaga"></label>
-                <textarea name="descricao_vaga" id="descricao" cols="100" rows="20" maxlength="500"></textarea>
-
-                <button name="submit" type="submit">Criar vaga</button>
+                <div><button name="submit" class="btnCreateVaga" type="submit">Criar vaga</button></div>
 
             </form>
 

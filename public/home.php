@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/home.css">
+    <script src="https://kit.fontawesome.com/05378ddbee.js" crossorigin="anonymous"></script>
     
     <title>Home</title>
 </head>
@@ -39,3 +40,5 @@
 
 </body>
 </html>
+
+<script src="assets/js/scriptHome.js"></script>

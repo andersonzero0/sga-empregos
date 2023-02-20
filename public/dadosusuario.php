@@ -22,7 +22,7 @@ if(isset($_SESSION['tokenUser'])) {
     <main>
         <form action="<?= htmlspecialchars('src/controllers/dadosUserControllers.php') ?>" method="post" enctype="multipart/form-data">
             <label for="fullName">Nome Completo:</label>
-            <input type="text" name="fullName" id="fullName" required minlength="15" maxlength="80" size="35">
+            <input type="text" name="fullName" id="fullName" required minlength="10" maxlength="80" size="35">
 
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required minlength="3" maxlength="50" size="30">
@@ -38,7 +38,7 @@ if(isset($_SESSION['tokenUser'])) {
             </select>
 
             <label for="link">Rede Social:</label>
-            <input type="url" name="link" id="link" required minlength="5" maxlength="60" size="30">
+            <input type="text" name="link" id="link" required minlength="5" maxlength="60" size="30" placeholder="@">
 
             <label for="curriculoPDF">Currículo</label>
             <input type="file" name="curriculoPDF" id="curriculoPDF" accept=".pdf" required>

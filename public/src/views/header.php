@@ -24,9 +24,9 @@
     <nav class="navbar_conteiner">
 
         <ul class="navbar">
-            <li><?= $datasUser['user_name'] ?></li>
-
             <li class="type_text"><?= $datasUser['type_user'] ?></li>
+            
+            <li class="nameUser"><?= $datasUser['user_name'] ?></li>
 
             <li class="conteiner_imgPerfil"><img class="img_perfil" src="assets/images/<?= $datasUser['link_image_profile_userData'] ?>" alt=""></li>
 

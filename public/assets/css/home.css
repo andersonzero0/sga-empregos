@@ -101,6 +101,142 @@ body {
     color: var(--colorWhite);
 }
 
+.nameUser {
+    color: gray;
+    font-weight: 700;
+    font-family: var(--fontMain);
+    letter-spacing: 1px;
+}
+
 .navbar_conteiner, .navbar, .conteiner_imgPerfil {
     height: 100%;
 }
+
+/* Style Recrutador - Start */
+
+.conteinerCreateVaga {
+    position: fixed;
+    background-color: var(--colorWhite);
+    box-shadow: 2px 2px 10px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 15px;
+    z-index: 1000;
+}
+
+.formConteinerRecrutador {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.boxInfoRecrut {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.boxInfoRecrut > div {
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.boxInfoRecrut > div > label {
+    font-weight: bold;
+}
+
+.boxInfoRecrut > div > input {
+    padding: 1px 2px;
+    font-size: 1em;
+    font-weight: 500;
+    border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.boxInfoRecrut > div > input:focus {
+    outline: 3px solid var(--colorBlue);
+}
+
+.conteinerTexta {
+    padding: 3px 5px;
+    background-color: lightgray;
+}
+
+.textareaDesc {
+    padding: 3px;
+    border: none;
+}
+
+.textareaDesc:focus {
+    outline: 3px solid var(--colorBlue);
+}
+
+.inputQtnVagas {
+    width: 4em;
+}
+
+#descricao {
+    width: 100%;
+}
+
+.btnCreateVaga {
+    padding: 3px 5px;
+    background-color: var(--colorGreen);
+    filter: grayscale(0.4);
+    color: var(--colorWhite);
+    font-weight: bolder;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btnCreateVaga:hover {
+    filter: grayscale(0);
+}
+
+.btnOpenCreateVaga {
+    float: right;
+    display: inline;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    font-weight: bolder;
+    background-color: lightgray;
+    color: var(--colorGreen);
+    font-family: var(--fontMain);
+    cursor: pointer;
+    margin: 10px 10% 0 0;
+}
+
+.iconOpenVaga {
+    margin-right: 3px;
+}
+
+.closeCreateVaga {
+    text-align: right;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    font-size: 1.5em;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+/* Style Recrutador - End */
