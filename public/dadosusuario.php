@@ -41,7 +41,7 @@ if(isset($_SESSION['tokenUser'])) {
             <input type="text" name="link" id="link" required minlength="5" maxlength="60" size="30" placeholder="@">
 
             <label for="curriculoPDF">Currículo</label>
-            <input type="file" name="curriculoPDF" id="curriculoPDF" accept=".pdf" required>
+            <input type="file" name="curriculoPDF" id="curriculoPDF" accept=".pdf" required disabled>
 
             <button type="submit" name="submit">Enviar</button>
         </form>
@@ -57,3 +57,16 @@ if(isset($_SESSION['tokenUser'])) {
     echo 2;
 }
 ?>
+
+<script>
+    const type_user = document.getElementById("type_user");
+    const curriculoPDF = document.getElementById("curriculoPDF");
+
+    type_user.addEventListener('change', () => {
+        if(type_user.value == "CANDIDATO") {
+            curriculoPDF.removeAttribute("disabled");
+        } else {
+            curriculoPDF.setAttribute("disabled", "disabled");
+        }
+    })
+</script>

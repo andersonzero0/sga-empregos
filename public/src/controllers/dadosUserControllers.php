@@ -11,32 +11,48 @@ if(isset($_POST['submit'])) {
 
     /* ++++++++++++ */
 
-    $target_dirPDF = "../../assets/pdf/";
-    $target_filePDF = $target_dirPDF . basename($_FILES["curriculoPDF"]["name"]);
-    $uploadOkPDF = 1;
-    $FileTypePDF = strtolower(pathinfo($target_filePDF,PATHINFO_EXTENSION));
+    if($type_user == "CANDIDATO") {
 
-    if ($_FILES["curriculoPDF"]["size"] > 10000000) {
-        echo "Sorry, your file is too large.";
-        $uploadOkPDF = 0;
-    }
+        $target_dirPDF = "../../assets/pdf/";
+        $target_namePDF = time() . ".pdf";
+        $target_filePDF = $target_dirPDF . basename($target_namePDF);
+        $uploadOkPDF = 1;
+        $FileTypePDF = strtolower(pathinfo($target_filePDF,PATHINFO_EXTENSION));
 
-    if($FileTypePDF != "pdf") {
-        echo "Sorry, only PDF files are allowed."; 
-        $uploadOkPDF = 0;
-    }
-
-    if ($uploadOkPDF == 0) {
-        echo "Sorry, your file was not uploaded.";
-      // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["curriculoPDF"]["tmp_name"], $target_filePDF)) {
-
-            $curriculoPDF = htmlspecialchars( basename( $_FILES["curriculoPDF"]["name"]));
-
-        } else {
-            echo "Sorry, there was an error uploading your file.";
+        if ($_FILES["curriculoPDF"]["size"] > 10000000) {
+            echo "Sorry, your file is too large.";
+            $uploadOkPDF = 0;
         }
+
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+
+        $mime_type = finfo_file($finfo, $_FILES["curriculoPDF"]["tmp_name"]);
+        if ($mime_type != "application/pdf") {
+            echo "Sorry, only PDF files are allowed.";
+            $uploadOkPDF = 0;
+        }
+
+        $target_namePDF = preg_replace("/[^a-zA-Z0-9_.]/", "", $target_namePDF);
+
+        if($FileTypePDF != "pdf") {
+            echo "Sorry, only PDF files are allowed."; 
+            $uploadOkPDF = 0;
+        }
+
+        if ($uploadOkPDF == 0) {
+            echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["curriculoPDF"]["tmp_name"], $target_filePDF)) {
+                $curriculoPDF = htmlspecialchars( basename( $target_namePDF));
+
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+        
+    } else {
+        $curriculoPDF = "null";
     }
     /* upload file - end */
 
