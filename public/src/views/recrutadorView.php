@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutador.php') {
+if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php') {
     header('location: ../../index.html');
 } else {
 ?>

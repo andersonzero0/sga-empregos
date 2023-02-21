@@ -1,11 +1,16 @@
-<main>
+<main class="mainCandidato">
     <div>
 
-<?php   
+<?php
+
+if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/candidatoView.php') {
+    header('location: ../../index.html');
+}
+
 require "src/config/connect-db.php";
 require_once "src/functions/functions.php";
 
-$sqlCode = "SELECT * FROM vagas_tb";
+$sqlCode = "SELECT * FROM vagas_tb ORDER BY id_vaga DESC";
 $result = $conn->query($sqlCode);
 
 if($result->num_rows == 0) {
@@ -30,14 +35,18 @@ if($result->num_rows == 0) {
 ?>
 <!-- content - start -->
 
-    <form action="<?= htmlspecialchars('') ?>" method="get">
-        <p>Cargo: <?= $row['cargo_vaga'] ?></p>
-        <p>Empresa: <?= $row['empresa_vaga'] ?> </p>
-        <p>Local: <?= $row['local_vaga'] ?></p>
-        <p>Turno: <?= $row['turno_vaga'] ?></p>
-        <p>Quantidade: <?= $row['qnt_vaga'] ?></p>
+    <form class="conteinerVagasCand" action="<?= htmlspecialchars('') ?>" method="get">
+        <div class="vagasInfoCand">
+            <p>Cargo: <?= $row['cargo_vaga'] ?></p>
+            <p>Empresa: <?= $row['empresa_vaga'] ?> </p>
+            <p>Local: <?= $row['local_vaga'] ?></p>
+            <p>Turno: <?= $row['turno_vaga'] ?></p>
+            <p>Quantidade: <?= $row['qnt_vaga'] ?></p>
+        </div>
 
-        <input type="hidden" name="id_vaga" value="<?= $row['id_vaga'] ?>">
+        <div>
+            <input type="hidden" name="id_vaga" value="<?= $row['id_vaga'] ?>">
+        </div>
 
 <?php
 
@@ -50,11 +59,11 @@ if($result->num_rows == 0) {
 
     if($valueCand == 0) {
 ?>
-        <button type="submit" name="subsVaga_btn">Se candidatar</button>
+        <button class="btnCand" type="submit" name="subsVaga_btn">CANDIDATAR</button>
 <?php
     } else {
 ?>
-        <p>Você já está candidatado!</p>
+        <p class="msgCandTrue">Você já está candidatado!</p>
 <?php        
     }
 ?>

@@ -15,6 +15,10 @@
 
         require "src/functions/functions.php";
 
+        if(isset($_SESSION['tokenUser']) && !dadosUserExists($_SESSION['tokenUser'])) {
+            header('location: dadosusuario.php');
+        }
+
         if(isset($_SESSION['tokenUser']) && isset($_SESSION['type_user'])) {
 
             $datasUser = getDatasUser($_SESSION['tokenUser']);

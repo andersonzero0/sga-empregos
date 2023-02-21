@@ -240,3 +240,68 @@ input[type=number] {
     cursor: pointer;
 }
 /* Style Recrutador - End */
+
+/* Style Candidato - Start */
+.mainCandidato {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.conteinerVagasCand {
+    margin: 10px 0;
+    width: 500px;
+    height: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: 5px;
+    padding: 5px;
+    background-color: var(--colorWhite);
+    box-shadow: 5px 5px 20px lightgray;
+    border: 3px solid var(--colorBlack);
+    border-radius: 5px;
+}
+
+.vagasInfoCand {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px 10px;
+}
+
+.vagasInfoCand > p {
+    background-color: gray;
+    padding: 2px 5px;
+    font-weight: bolder;
+    color: white;
+    border-radius: 3px;
+}
+
+.btnCand {
+    background: transparent;
+    border: 3px solid var(--colorGreen);
+    font-size: 1.1em;
+    font-family: var(--fontMain);
+    font-weight: bolder;
+    padding: 2px 5px;
+    cursor: pointer;
+    transition: ease 0.2s;
+}
+
+.btnCand:hover {
+    background-color: var(--colorGreen);
+    color: var(--colorWhite);
+    transition: ease 0.2s;
+}
+
+.msgCandTrue {
+    font-size: 1.1em;
+    font-weight: bolder;
+    color: var(--colorOrange);
+}
+/* Style Candidato - End */
