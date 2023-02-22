@@ -63,7 +63,59 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 ?>
 
         <div class="box_vaga">
-            <p><?= $row['cargo_vaga'] ?></p>
+            <div class="conteinerViewListInfo">
+                <p>Cargo: <?= $row['cargo_vaga'] ?></p>
+                <p>Empresa: <?= $row['empresa_vaga'] ?></p>
+                <p>Quantidade de vagas: <?= $row['qnt_vaga'] ?></p>
+            </div>
+
+            <div class="conteinerViewList">
+                <button class="btnViewList" type="button">Vizualizar Candidatos</button>
+
+                <div class="contentListViewGeral" style="display: none;">
+
+                    <?php
+
+                    $id_vagaView = $row['id_vaga'];
+
+                    $sqlViewCand = "SELECT * FROM registrocandit_tb INNER JOIN users_tb ON registrocandit_tb.forward_key_user = users_tb.id_user INNER JOIN vagas_tb ON registrocandit_tb.forward_key_vaga = vagas_tb.id_vaga INNER JOIN user_datas_tb ON users_tb.id_user = user_datas_tb.forward_key_userData WHERE registrocandit_tb.forward_key_vaga = $id_vagaView";
+
+                    $resultViewCand = $conn->query($sqlViewCand);
+
+                    if($resultViewCand->num_rows == 0) {
+
+                        echo "Não há candidatos";
+
+                    } else {
+
+                        while($rowViewCand = $resultViewCand->fetch_assoc()) {
+                        ?>
+
+                        <div class="boxUserList">
+                            <div class="viewUserListInicial">
+                                <button class="openMaxInfo" style="border: none; background: transparent;"><i class="fa-regular fa-square-caret-down"></i></button>
+
+                                <img class="imgUserList" src="assets/images/<?= $rowViewCand['link_image_profile_userData'] ?>" alt="">
+                                <p>Nome: <?= $rowViewCand['full_name_userData'] ?></p>
+                                <a href="assets/pdf/<?= htmlspecialchars($rowViewCand['link_curriculum_vitae_userData']) ?>" target="_blank">Curriculo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+
+                            <div style="display: none;" class="viewInfoExtraAndOptions">
+                                <p>Email: <?= $rowViewCand['email_address_userData'] ?></p>
+                                <p>Telefone: <?= $rowViewCand['phone_number_userData'] ?></p>
+                                <p>Link Externo: <?= $rowViewCand['external_link_userData'] ?></p>
+                            </div>
+                        </div>  
+
+                        <?php
+                        }
+            
+                    }
+                        
+                    ?>
+                    
+                </div>
+            </div>
         </div>
 
 <?php

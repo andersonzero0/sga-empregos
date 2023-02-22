@@ -239,6 +239,91 @@ input[type=number] {
     background: transparent;
     cursor: pointer;
 }
+
+.vagas_conteiner {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_vaga {
+    background-color: var(--colorWhite);
+    border: 3px solid gray;
+    margin-top: 10px;
+    width: 500px;
+    padding: 5px;
+}
+
+.boxUserList {
+    width: 100%;
+    padding: 5px 10px;
+    margin-top: 5px;
+    border: 3px solid black;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: white;
+}
+
+.viewUserListInicial {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.viewInfoExtraAndOptions {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    justify-content: center;
+}
+
+.imgUserList {
+    height: 70%;
+}
+
+.conteinerViewListInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 3px solid gray;
+    padding-bottom: 2px;
+}
+
+.conteinerViewList {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.btnViewList {
+    padding: 5px 0px;
+    font-size: 0.9em;
+    font-weight: bolder;
+    background-color: var(--colorBlue);
+    color: white;
+    border: 3px solid lightgray;
+    cursor: pointer;
+}
+
+.openMaxInfo {
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: ease 0.2s;
+}
+
+.openMaxInfo:hover {
+    transform: scale(1.1);
+    transition: ease 0.2s;
+}
 /* Style Recrutador - End */
 
 /* Style Candidato - Start */

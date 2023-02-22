@@ -22,7 +22,7 @@
             </div>
 
             <div class="content-input">
-                <input class="input-form" type="text" minlength="5" maxlength="15" required name="userNameClient" placeholder="Nome de usuário">
+                <input class="input-form" onkeyup="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')" type="text" minlength="5" maxlength="15" required name="userNameClient" placeholder="Nome de usuário">
             </div>
 
             <div class="content-input">
