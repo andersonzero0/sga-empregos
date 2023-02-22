@@ -77,6 +77,8 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
         </div>
     </main>
 
+    <script src="assets/js/scriptRecrutador.js"></script>
+
 <?php
 }
 ?>

@@ -44,5 +44,3 @@
 
 </body>
 </html>
-
-<script src="assets/js/scriptHome.js"></script>

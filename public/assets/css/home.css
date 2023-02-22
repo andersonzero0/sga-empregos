@@ -252,7 +252,7 @@ input[type=number] {
 .conteinerVagasCand {
     margin: 10px 0;
     width: 500px;
-    height: 140px;
+    min-height: 140px;
 
     display: flex;
     justify-content: center;
@@ -275,27 +275,28 @@ input[type=number] {
 }
 
 .vagasInfoCand > p {
-    background-color: gray;
-    padding: 2px 5px;
+    background-color: lightgray;
+    padding: 2px 0px;
     font-weight: bolder;
-    color: white;
-    border-radius: 3px;
+    padding-right: 5px;
+    color: black;
+    border-radius: 1px;
 }
 
 .btnCand {
     background: transparent;
-    border: 3px solid var(--colorGreen);
     font-size: 1.1em;
     font-family: var(--fontMain);
     font-weight: bolder;
     padding: 2px 5px;
     cursor: pointer;
     transition: ease 0.2s;
+    background-color: var(--colorGreen);
+    color: var(--colorWhite);
 }
 
 .btnCand:hover {
-    background-color: var(--colorGreen);
-    color: var(--colorWhite);
+    background-color: #00DE00;
     transition: ease 0.2s;
 }
 
@@ -303,5 +304,29 @@ input[type=number] {
     font-size: 1.1em;
     font-weight: bolder;
     color: var(--colorOrange);
+}
+
+strong {
+    background-color: gray;
+    color: white;
+    padding: 3px;
+}
+
+.btn_desc {
+    padding: 3px 5px;
+    font-size: 0.9em;
+    border: 2px solid black;
+    font-weight: bolder;
+    cursor: pointer;
+    background-color: #0D518C;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconBtnDesc {
+    margin-right: 5px;
 }
 /* Style Candidato - End */
