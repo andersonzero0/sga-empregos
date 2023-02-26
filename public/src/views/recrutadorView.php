@@ -88,6 +88,22 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 
                     } else {
 
+                        if (isset($_GET['optAcceptCand'])) {
+                            $idCandForVaga = $_GET['idCandForVaga'];
+                            $idVagaForCand = $_GET['idVagaForCand'];
+                            $sqlAcceptCand = "UPDATE registrocandit_tb SET stage_vaga = 'ACEITO' WHERE forward_key_user = $idCandForVaga AND forward_key_vaga = $idVagaForCand";
+                            $conn->query($sqlAcceptCand);
+                            header('location: home.php');
+                        }
+
+                        if (isset($_GET['optRejectCand'])) {
+                            $idCandForVagaR = $_GET['idCandForVaga'];
+                            $idVagaForCand = $_GET['idVagaForCand'];
+                            $sqlRejectCand = "UPDATE registrocandit_tb SET stage_vaga = 'REJEITADO' WHERE forward_key_user = $idCandForVagaR AND forward_key_vaga = $idVagaForCand";
+                            $conn->query($sqlRejectCand);
+                            header('location: home.php');
+                        }
+                    
                         while($rowViewCand = $resultViewCand->fetch_assoc()) {
                         ?>
 
@@ -101,9 +117,23 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
                             </div>
 
                             <div style="display: none;" class="viewInfoExtraAndOptions">
-                                <p>Email: <?= $rowViewCand['email_address_userData'] ?></p>
-                                <p>Telefone: <?= $rowViewCand['phone_number_userData'] ?></p>
-                                <p>Link Externo: <?= $rowViewCand['external_link_userData'] ?></p>
+                                <div class="boxInfoExtra">
+                                    <p>Email: <?= $rowViewCand['email_address_userData'] ?></p>
+                                    <p>Telefone: <?= $rowViewCand['phone_number_userData'] ?></p>
+                                    <p>Link Externo: <a href="<?= $rowViewCand['external_link_userData'] ?>" target="_blank"><?= $rowViewCand['external_link_userData'] ?></a></p>
+                                </div>
+
+                                <div>
+                                    <form class="formOptExtra" action="<?= htmlspecialchars('') ?>" method="get">
+                                        <input type="hidden" name="idCandForVaga" value="<?= $rowViewCand['id_user'] ?>">
+                                        <input type="hidden" name="idVagaForCand" value="<?= $rowViewCand['forward_key_vaga'] ?>">
+                                        <button name="optAcceptCand" class="optAcceptCand" type="submit" disabled>ACEITAR</button>
+                                        <button name="optRejectCand" class="optRejectCand" type="submit" disabled>RECUSAR</button>
+                                    </form>
+
+                                    <input type="checkbox" name="verifActionVaga" class="verifActionVaga">
+                                    <label for="verifActionVaga">Tenho certeza da minha escolha.</label>
+                                </div>
                             </div>
                         </div>  
 
@@ -130,6 +160,28 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
     </main>
 
     <script src="assets/js/scriptRecrutador.js"></script>
+
+    <script>
+
+        const verifActionVaga = document.getElementsByClassName("verifActionVaga");
+        const optAcceptCand = document.getElementsByClassName("optAcceptCand");
+        const optRejectCand = document.getElementsByClassName("optRejectCand");
+
+        for (var i = 0; i < verifActionVaga.length; i++) {
+            (function(index) {
+                verifActionVaga[index].addEventListener('change', function() {
+                    if(verifActionVaga[index].checked) {
+                        optAcceptCand[index].removeAttribute('disabled');
+                        optRejectCand[index].removeAttribute('disabled');
+                    } else {
+                        optAcceptCand[index].setAttribute('disabled', 'disabled');
+                        optRejectCand[index].setAttribute('disabled', 'disabled');
+                    }
+                });
+            })(i);
+        }
+
+    </script>
 
 <?php
 }

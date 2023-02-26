@@ -324,6 +324,74 @@ input[type=number] {
     transform: scale(1.1);
     transition: ease 0.2s;
 }
+
+.boxInfoExtra {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    padding: 5px;
+}
+
+.boxInfoExtra > p {
+    background-color: lightgray;
+    padding: 2px 5px;
+}
+
+.formOptExtra {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin-top: 10px;
+}
+
+.formOptExtra > button {
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+.optAcceptCand {
+    border: 3px solid green;
+    color: green;
+    font-weight: bolder;
+    transition: ease 0.2s;
+}
+
+.optAcceptCand:hover {
+    background-color: green;
+    color: white;
+    transition: ease 0.2s;
+}
+
+.optRejectCand {
+    border: 3px solid red;
+    color: red;
+    font-weight: bolder;
+    transition: ease 0.2s;
+}
+
+.optRejectCand:hover {
+    background-color: red;
+    color: white;
+    transition: ease 0.2s;
+}
+
+.optAcceptCand:disabled, .optRejectCand:disabled {
+    touch-action: none;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+.contentListViewGeral {
+    overflow-y: auto;
+    max-height: 200px;
+}
 /* Style Recrutador - End */
 
 /* Style Candidato - Start */
