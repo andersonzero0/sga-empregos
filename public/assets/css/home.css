@@ -392,6 +392,10 @@ input[type=number] {
     overflow-y: auto;
     max-height: 200px;
 }
+
+.conteinerCandidatosAprovados {
+    border-bottom: 2px solid gray;
+}
 /* Style Recrutador - End */
 
 /* Style Candidato - Start */

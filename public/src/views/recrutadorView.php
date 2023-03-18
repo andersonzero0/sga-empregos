@@ -74,11 +74,35 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 
                 <div class="contentListViewGeral" style="display: none;">
 
+                <div class="conteinerCandidatosAprovados">
+                    <label for="candidatosAceitos"><strong>Candidatos aceitos:</strong></label>
+
+                <?php
+                    $id_vagaView001 = $row['id_vaga'];
+                    $sql001 = "SELECT * FROM registrocandit_tb INNER JOIN users_tb ON registrocandit_tb.forward_key_user = users_tb.id_user INNER JOIN vagas_tb ON registrocandit_tb.forward_key_vaga = vagas_tb.id_vaga INNER JOIN user_datas_tb ON users_tb.id_user = user_datas_tb.forward_key_userData WHERE registrocandit_tb.forward_key_vaga = $id_vagaView001 AND registrocandit_tb.stage_vaga = 'ACEITO'";
+
+                    $result001 = $conn->query($sql001);
+
+                    if($result001->num_rows == 0) {
+                        echo "Não há candidatos";
+                    } else {
+                        while($row001 = $result001->fetch_assoc()) {
+                        ?>
+                            <div>
+                                <p style="font-weight: bolder;"><?= $row001['full_name_userData'] ?></p>
+                            </div>
+                        <?php
+                        }
+                    }
+                ?>
+
+                </div>
+
                     <?php
 
                     $id_vagaView = $row['id_vaga'];
 
-                    $sqlViewCand = "SELECT * FROM registrocandit_tb INNER JOIN users_tb ON registrocandit_tb.forward_key_user = users_tb.id_user INNER JOIN vagas_tb ON registrocandit_tb.forward_key_vaga = vagas_tb.id_vaga INNER JOIN user_datas_tb ON users_tb.id_user = user_datas_tb.forward_key_userData WHERE registrocandit_tb.forward_key_vaga = $id_vagaView";
+                    $sqlViewCand = "SELECT * FROM registrocandit_tb INNER JOIN users_tb ON registrocandit_tb.forward_key_user = users_tb.id_user INNER JOIN vagas_tb ON registrocandit_tb.forward_key_vaga = vagas_tb.id_vaga INNER JOIN user_datas_tb ON users_tb.id_user = user_datas_tb.forward_key_userData WHERE registrocandit_tb.forward_key_vaga = $id_vagaView AND registrocandit_tb.stage_vaga = 'PENDENTE'";
 
                     $resultViewCand = $conn->query($sqlViewCand);
 
@@ -125,8 +149,8 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 
                                 <div>
                                     <form class="formOptExtra" action="<?= htmlspecialchars('') ?>" method="get">
-                                        <input type="hidden" name="idCandForVaga" value="<?= $rowViewCand['id_user'] ?>">
-                                        <input type="hidden" name="idVagaForCand" value="<?= $rowViewCand['forward_key_vaga'] ?>">
+                                        <input type="hidden" size="2" name="idCandForVaga" value="<?= $rowViewCand['id_user'] ?>">
+                                        <input type="hidden" size="2" name="idVagaForCand" value="<?= $row['id_vaga'] ?>">
                                         <button name="optAcceptCand" class="optAcceptCand" type="submit" disabled>ACEITAR</button>
                                         <button name="optRejectCand" class="optRejectCand" type="submit" disabled>RECUSAR</button>
                                     </form>
