@@ -56,6 +56,14 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 
     $result = $conn->query($sqlVagas);
 
+    if(isset($_GET['btn_deleteVaga'])) {
+        $id_vagaDelete = $_GET['id_vagaDelete'];
+
+        $sqlDeleteVaga = "DELETE FROM vagas_tb WHERE id_vaga=$id_vagaDelete";
+        $conn->query($sqlDeleteVaga);
+        header("location: home.php");
+    }
+
     if($result->num_rows > 0){
 
         while($row = $result->fetch_assoc()) {
@@ -63,6 +71,12 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 ?>
 
         <div class="box_vaga">
+
+            <form action="<?= htmlspecialchars('') ?>" method="get">
+                <input type="hidden" name="id_vagaDelete" value="<?= $row['id_vaga'] ?>">
+                <button name="btn_deleteVaga" class="btn-deleteVaga"><i class="fa-solid fa-trash"></i></button>
+            </form>
+
             <div class="conteinerViewListInfo">
                 <p>Cargo: <?= $row['cargo_vaga'] ?></p>
                 <p>Empresa: <?= $row['empresa_vaga'] ?></p>

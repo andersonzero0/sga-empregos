@@ -396,6 +396,17 @@ input[type=number] {
 .conteinerCandidatosAprovados {
     border-bottom: 2px solid gray;
 }
+
+.btn-deleteVaga {
+    display: inline;
+    float: right;
+
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: var(--colorOrange1);
+    cursor: pointer;
+}
 /* Style Recrutador - End */
 
 /* Style Candidato - Start */
