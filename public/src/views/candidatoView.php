@@ -2,14 +2,6 @@
 
     <!-- Conteiner Vagas Cadastradas - Start -->
 
-    <div>
-        
-    </div>
-
-    <!-- Conteiner Vagas Cadastradas - End -->
-
-    <div>
-
 <?php
 
 if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/candidatoView.php') {
@@ -18,6 +10,44 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/candidatoView.php') 
 
 require "src/config/connect-db.php";
 require_once "src/functions/functions.php";
+
+
+?>
+
+<div class="conteinerVagasStatus">
+    <h3 style="text-align: center; color: var(--colorOrange); background-color: white;">Vagas que você está candidatado:</h3>
+<?php
+    $token_userExtra = $_SESSION['tokenUser'];
+
+    $sqlViewStatusVaga = "SELECT * FROM registrocandit_tb INNER JOIN users_tb ON registrocandit_tb.forward_key_user = users_tb.id_user INNER JOIN vagas_tb ON registrocandit_tb.forward_key_vaga = vagas_tb.id_vaga WHERE token_user = '$token_userExtra'";
+
+    $resultStatusVaga = $conn->query($sqlViewStatusVaga);
+
+    if($resultStatusVaga->num_rows == 0) {
+        echo "Você não se candidatou a nenhuma vaga.";
+    } else {
+        
+        while($rowStatusVaga = $resultStatusVaga->fetch_assoc()) {
+?>  
+            <div class="VagasIndStatus">
+                <p><?= $rowStatusVaga['cargo_vaga'] ?></p>
+                <p><?= $rowStatusVaga['empresa_vaga'] ?></p>
+                <p class="statusVaga"><?= $rowStatusVaga['stage_vaga'] ?></p>
+            </div>
+
+<?php
+        }
+
+    }
+?>
+    </div>
+
+    <!-- Conteiner Vagas Cadastradas - End -->
+
+    <div>
+
+<?php
+
 
 $sqlCode = "SELECT * FROM vagas_tb ORDER BY id_vaga DESC";
 $result = $conn->query($sqlCode);
@@ -61,10 +91,10 @@ if($result->num_rows == 0) {
             <p><strong>Turno:</strong> <?= $row['turno_vaga'] ?></p>
             <p><strong>Quantidade de vagas:</strong> <?= $row['qnt_vaga'] ?></p>
 
-            <p class="descricaoContent" style="display: none;"><strong>Descrição:</strong> <?= $row['descricao_vaga'] ?></p>
+            <p class="descricaoContent" style="display: block;"><strong>Descrição:</strong> <?= $row['descricao_vaga'] ?></p>
 
             <button class="btn_desc" type="button"><i class="fa-solid fa-sort-down iconBtnDesc"></i>Descrição</button>
-        </div>
+        </div>  
 
         <div>
             <input type="hidden" name="id_vaga" value="<?= $row['id_vaga'] ?>">

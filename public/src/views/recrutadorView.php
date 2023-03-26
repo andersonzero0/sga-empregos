@@ -60,7 +60,9 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
         $id_vagaDelete = $_GET['id_vagaDelete'];
 
         $sqlDeleteVaga = "DELETE FROM vagas_tb WHERE id_vaga=$id_vagaDelete";
+        $sqlDeleteRegistro = "DELETE FROM registrocandit_tb WHERE forward_key_vaga=$id_vagaDelete";
         $conn->query($sqlDeleteVaga);
+        $conn->query($sqlDeleteRegistro);
         header("location: home.php");
     }
 
