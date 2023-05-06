@@ -91,7 +91,7 @@ if($result->num_rows == 0) {
             <p><strong>Turno:</strong> <?= $row['turno_vaga'] ?></p>
             <p><strong>Quantidade de vagas:</strong> <?= $row['qnt_vaga'] ?></p>
 
-            <p class="descricaoContent" style="display: block;"><strong>Descrição:</strong> <?= $row['descricao_vaga'] ?></p>
+            <p class="descricaoContent" style="display: none;"><strong>Descrição:</strong> <?= $row['descricao_vaga'] ?></p>
 
             <button class="btn_desc" type="button"><i class="fa-solid fa-sort-down iconBtnDesc"></i>Descrição</button>
         </div>  

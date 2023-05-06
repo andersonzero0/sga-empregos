@@ -149,7 +149,7 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 
                         <div class="boxUserList">
                             <div class="viewUserListInicial">
-                                <button class="openMaxInfo" style="border: none; background: transparent;"><i class="fa-regular fa-square-caret-down"></i></button>
+                                <button class="openMaxInfo" style="border: none; background: transparent;"><i class="fa-regular fa-square-caret-down"></i>+</button>
 
                                 <img class="imgUserList" src="assets/images/<?= $rowViewCand['link_image_profile_userData'] ?>" alt="">
                                 <p>Nome: <?= $rowViewCand['full_name_userData'] ?></p>

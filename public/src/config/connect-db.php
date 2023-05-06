@@ -4,4 +4,4 @@
     $password = "";
     $db = "sga_empregos_db";
     $conn = new mysqli($hostname, $username, $password, $db);
-?>
+?>  
