@@ -37,7 +37,7 @@
             
         } else {
 
-            echo 0;
+            include "views/home_view.php";
             
         }
     ?>
