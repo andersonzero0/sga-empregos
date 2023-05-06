@@ -118,7 +118,7 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 
                     $id_vagaView = $row['id_vaga'];
 
-                    $sqlViewCand = "SELECT * FROM registrocandit_tb INNER JOIN users_tb ON registrocandit_tb.forward_key_user = users_tb.id_user INNER JOIN vagas_tb ON registrocandit_tb.forward_key_vaga = vagas_tb.id_vaga INNER JOIN user_datas_tb ON users_tb.id_user = user_datas_tb.forward_key_userData WHERE registrocandit_tb.forward_key_vaga = $id_vagaView AND registrocandit_tb.stage_vaga = 'PENDENTE'";
+                    $sqlViewCand = "SELECT * FROM registrocandit_tb INNER JOIN users_tb ON registrocandit_tb.forward_key_user = users_tb.id_user INNER JOIN vagas_tb ON registrocandit_tb.forward_key_vaga = vagas_tb.id_vaga INNER JOIN user_datas_tb ON users_tb.id_user = user_datas_tb.forward_key_userData WHERE registrocandit_tb.forward_key_vaga = $id_vagaView /* AND registrocandit_tb.stage_vaga = 'PENDENTE' */";
 
                     $resultViewCand = $conn->query($sqlViewCand);
 
@@ -133,7 +133,8 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
                             $idVagaForCand = $_GET['idVagaForCand'];
                             $sqlAcceptCand = "UPDATE registrocandit_tb SET stage_vaga = 'ACEITO' WHERE forward_key_user = $idCandForVaga AND forward_key_vaga = $idVagaForCand";
                             $conn->query($sqlAcceptCand);
-                            header('location: home.php');
+                            
+                            echo "<script>window.location.href = 'http://localhost/sga-empregos'</script>";
                         }
 
                         if (isset($_GET['optRejectCand'])) {
@@ -141,20 +142,23 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
                             $idVagaForCand = $_GET['idVagaForCand'];
                             $sqlRejectCand = "UPDATE registrocandit_tb SET stage_vaga = 'REJEITADO' WHERE forward_key_user = $idCandForVagaR AND forward_key_vaga = $idVagaForCand";
                             $conn->query($sqlRejectCand);
-                            header('location: home.php');
+                            echo "<script>window.location.href = 'http://localhost/sga-empregos'</script>";
                         }
                     
                         while($rowViewCand = $resultViewCand->fetch_assoc()) {
+                            $stage_vaga =   $rowViewCand['stage_vaga'];
                         ?>
 
                         <div class="boxUserList">
                             <div class="viewUserListInicial">
                                 <button class="openMaxInfo" style="border: none; background: transparent;"><i class="fa-regular fa-square-caret-down"></i>+</button>
 
+                                <p><?= $stage_vaga ?></p>
+
                                 <img class="imgUserList" src="assets/images/<?= $rowViewCand['link_image_profile_userData'] ?>" alt="">
                                 <p>Nome: <?= $rowViewCand['full_name_userData'] ?></p>
                                 <a href="assets/pdf/<?= htmlspecialchars($rowViewCand['link_curriculum_vitae_userData']) ?>" target="_blank">Curriculo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
+                            </div>  
 
                             <div style="display: none;" class="viewInfoExtraAndOptions">
                                 <div class="boxInfoExtra">
@@ -175,7 +179,7 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
                                     <label for="verifActionVaga">Tenho certeza da minha escolha.</label>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
 
                         <?php
                         }

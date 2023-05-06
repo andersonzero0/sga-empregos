@@ -37,7 +37,7 @@
             
         } else {
 
-            include "views/home_view.php";
+            include "src/views/home_view.php";
             
         }
     ?>

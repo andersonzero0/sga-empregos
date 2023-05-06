@@ -22,8 +22,7 @@
         } else {
 
             session_destroy();
-
-            echo 0;
+            header("location: ../../cadastro.php");
 
         }
         
