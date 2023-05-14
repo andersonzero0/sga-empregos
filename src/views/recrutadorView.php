@@ -151,7 +151,7 @@ if ($_SERVER['PHP_SELF'] == '/sga-empregos/public/src/views/recrutadorView.php')
 
                         <div class="boxUserList">
                             <div class="viewUserListInicial">
-                                <button class="openMaxInfo" style="border: none; background: transparent;"><i class="fa-regular fa-square-caret-down"></i>+</button>
+                                <button class="openMaxInfo" style="border: none; background: transparent;"><i class="fa-regular fa-square-caret-down"></i></button>
 
                                 <p><?= $stage_vaga ?></p>
 
