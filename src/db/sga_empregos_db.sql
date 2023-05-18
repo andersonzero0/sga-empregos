@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 07, 2023 at 11:50 PM
+-- Generation Time: May 18, 2023 at 02:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,13 +35,6 @@ CREATE TABLE `registrocandit_tb` (
   `data_regist` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `registrocandit_tb`
---
-
-INSERT INTO `registrocandit_tb` (`id`, `forward_key_user`, `forward_key_vaga`, `stage_vaga`, `data_regist`) VALUES
-(1, 1, 2, 'REJEITADO', '06/05/2023');
-
 -- --------------------------------------------------------
 
 --
@@ -55,14 +48,6 @@ CREATE TABLE `users_tb` (
   `token_user` varchar(100) NOT NULL,
   `date_user` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `users_tb`
---
-
-INSERT INTO `users_tb` (`id_user`, `user_name`, `password_user`, `token_user`, `date_user`) VALUES
-(1, 'candidato', 'b434d5c737faf126c98ccd91132f6892', 'c1f1756eda4fe13f5d2ac1b7e52866ee', '20/02/2023'),
-(2, 'recrutador', 'b434d5c737faf126c98ccd91132f6892', '11efd1091220e0d4a90620b057b1ace7', '20/02/2023');
 
 -- --------------------------------------------------------
 
@@ -82,14 +67,6 @@ CREATE TABLE `user_datas_tb` (
   `link_curriculum_vitae_userData` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `user_datas_tb`
---
-
-INSERT INTO `user_datas_tb` (`id_userData`, `forward_key_userData`, `full_name_userData`, `email_address_userData`, `phone_number_userData`, `type_user`, `external_link_userData`, `link_image_profile_userData`, `link_curriculum_vitae_userData`) VALUES
-(1, 1, 'Pedro Alvares Cabral', 'cabral@portugal', '+5585981010101', 'CANDIDATO', 'http://cabral.com', 'user.png', 'fceb33c6-d63d-4c7b-b343-1a3344e1d34c.pdf'),
-(2, 2, 'Nicolas Tesla dos Santos', 'nicolas@tesla', '+5585981020202', 'RECRUTADOR', 'http://nicolastesla.com', 'user.png', 'Aprendendo-a-sintaxe.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -106,14 +83,6 @@ CREATE TABLE `vagas_tb` (
   `qnt_vaga` int(11) NOT NULL,
   `descricao_vaga` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `vagas_tb`
---
-
-INSERT INTO `vagas_tb` (`id_vaga`, `forward_key_vaga`, `cargo_vaga`, `empresa_vaga`, `local_vaga`, `turno_vaga`, `qnt_vaga`, `descricao_vaga`) VALUES
-(1, 2, 'Web Design', 'Google', 'Florida, EUA', 'Noturno', 12, 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various '),
-(2, 2, 'Engenheiro de Software', 'Google', 'Florida, EUA', 'Integral', 12, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ');
 
 --
 -- Indexes for dumped tables
@@ -151,25 +120,25 @@ ALTER TABLE `vagas_tb`
 -- AUTO_INCREMENT for table `registrocandit_tb`
 --
 ALTER TABLE `registrocandit_tb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users_tb`
 --
 ALTER TABLE `users_tb`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_datas_tb`
 --
 ALTER TABLE `user_datas_tb`
-  MODIFY `id_userData` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_userData` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `vagas_tb`
 --
 ALTER TABLE `vagas_tb`
-  MODIFY `id_vaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_vaga` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
