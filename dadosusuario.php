@@ -16,11 +16,16 @@ if(isset($_SESSION['tokenUser'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Bebas+Neue&family=Lora:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <main>
-        <form action="<?= htmlspecialchars('src/controllers/dadosUserControllers.php') ?>" method="post" enctype="multipart/form-data">
+        <legend class="legend-form" style="color: var(--colorBlue); text-shadow: 0px 0px 0px white">Preencha seus dados pessoais</legend>
+        <form class="conteiner-form" action="<?= htmlspecialchars('src/controllers/dadosUserControllers.php') ?>" method="post" enctype="multipart/form-data">
             <label for="fullName">Nome Completo:</label>
             <input type="text" name="fullName" id="fullName" required minlength="10" maxlength="80" size="35">
 
@@ -43,7 +48,7 @@ if(isset($_SESSION['tokenUser'])) {
             <label for="curriculoPDF">Currículo</label>
             <input type="file" name="curriculoPDF" id="curriculoPDF" accept=".pdf" required disabled>
 
-            <button type="submit" name="submit">Enviar</button>
+            <button class="btn_submit" type="submit" name="submit">Enviar</button>
         </form>
     </main>
 </body>
